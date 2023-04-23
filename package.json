@@ -27,9 +27,11 @@
   },
   "scripts": {
     "wdio": "wdio run wdio.conf.js",
+    "homework": "npm run wdio -- --suite homework",
     "wdio-hooks": "wdio run test/specs/examples/lesson-06/wdio.hooks.conf.js",
     "wdio-allure": "wdio run test/specs/examples/lesson-06/wdio.allure.conf.js",
     "wdio-htmlreporter": "wdio run test/specs/examples/lesson-06/wdio.htmlreporter.conf.js",
     "wdio-cucumber": "wdio run test/specs/examples/lesson-12/wdio.cucumber.conf.js"
+    
   }
 }
