@@ -10,6 +10,12 @@ describe('Czechitas Login Page', async () => {
 
         await browser.url('/prihlaseni');
 
+        const windowSize= await browser.getWindowSize();
+
+        console.log(windowSize);
+
+        await browser.saveScreenshot('login_page.png');
+        
         await browser.pause(5000);
 
     });
