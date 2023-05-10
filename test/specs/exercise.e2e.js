@@ -90,30 +90,96 @@ describe('Czechitas Login Page', async () => {
                 // console.log('Odkaz:' + await forgottenPaswordLink.getAttribute('href'));
                 // await forgottenPaswordLink.click();
 
-                const email_Field = $('#email');
-                const passwordField = $('#password');
-                const submitButton = $('.btn-primary');
+                // const email_Field = $('#email');
+                // const passwordField = $('#password');
+                // const submitButton = $('.btn-primary');
 
-                await email_Field.setValue('da-app.admin@czechitas.cz');
-                await passwordField.setValue('Czechitas123');
+                // await email_Field.setValue('da-app.admin@czechitas.cz');
+                // await passwordField.setValue('Czechitas123');
+                // await submitButton.click();
+
+                // const applicationLink = $('=Přihlášky');
+                // await applicationLink.click();
+
+                // await browser.pause(3000);
+
+                // const tableRows = await $('#DataTables_Table_0').$('tbody').$$('tr');
+
+                // console.log('Pocet radku:' + tableRows.length);
+
+                // await tableRows[4].waitForExist();
+                // console.log('Pocet radku:' + tableRows.length);
+
+
+                //         console.log(await tableRows[3].getText());
+                //  //  ???     console.log(await tableRows.getText());
+
+
+
+                //4 - ORGANIZACE TESTŮ
+
+                //CVIČENÍ 1
+
+                //1-3
+                const submitButton = $('.btn-primary');
+                await submitButton.click();
+                await browser.pause(2000);
+
+                //4-6
+                const emailField = $('#email');
+                const passwordField = $('#password');
+                const errorWrongPassword = $('.invalid-feedback')
+
+                await emailField.setValue(username);
+                await passwordField.setValue('Czechitas124 ');
+                await browser.pause(2000);
+                await submitButton.click();
+                console.log('Text Erroru:' + (await errorWrongPassword.getText()));
+
+                //7-9
+                await browser.pause(2000);
+                await emailField.setValue(username);
+                await passwordField.setValue(password);
+                await browser.pause(2000);
                 await submitButton.click();
 
+                const lisak = $('.nav');
+                console.log('Přihlášený uživatel:' + (await lisak.getText()));
+
+
+                //10-13
                 const applicationLink = $('=Přihlášky');
+                await browser.pause(2000);
                 await applicationLink.click();
 
-                await browser.pause(3000);
-
-                const tableRows = await $('#DataTables_Table_0').$('tbody').$$('tr');
-
+                const tableRows = await $('.dataTable').$('tbody').$$('tr');
                 console.log('Pocet radku:' + tableRows.length);
+                for (const row of rows) {
+                        const rowText = await row.getText()
+                        console.log(rowText);
+                };
 
-                await tableRows[4].waitForExist();
-                console.log('Pocet radku:' + tableRows.length);
+                const searchInput = $('input[type="search"]');
+                const loading = $('#DataTables_Table_0_processing');
+                const searchText = 'mar';
 
-               
-        //         console.log(await tableRows[3].getText());
-        //  //  ???     console.log(await tableRows.getText());
+                await searchInput.setValue(searchText);
+                await loading.waitForDisplayed();
+                await loading.waitForDisplayed({ reverse: true });
 
+                const filteredRows = await $('.dataTable').$('tbody').$$('tr')
+                console.log('There are ' + filteredRows.length + ' filtered rows in the table');
+                for (const row of filteredRows) {
+                        console.log(await row.getText());
+                }
+
+                const logoutLink = $('#logout-link');
+
+                await userNameDropdown.click();
+                await logoutLink.click();
+
+                console.log('User is logged in: ' + await userNameDropdown.isDisplayed());
+                console.log('Navbar text: ' + await navbarRight.getText());
 
 
 
