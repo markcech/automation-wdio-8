@@ -7,6 +7,7 @@ export const config = {
         // './test/specs/examples/**/*.js'
     ],
     suites: {
+        cviceni: ['./test/specs/cviceni.e2e.js'],
         exercise: ['./test/specs/exercise.e2e.js'],
         homework: ['./test/specs/homework/*.e2e.js'],
         lesson_01: ['./test/specs/examples/lesson-01/**/*.e2e.js'],
