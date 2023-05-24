@@ -88,9 +88,10 @@ xdescribe("2 - Selektory", async () => {
 });
 
 // LEKCE 3 - INTERAKCE S ELEMENTY
-Xdescribe("3 - Interakce s elementy", async () => {
+    //CVIČENÍ 1
+xdescribe("3.1 - Interakce s elementy 1", async () => {
 
-    xit("3.1 - zjištění stavu políčka email", async () => {
+    xit("3.1.1 - zjištění stavu políčka email", async () => {
         await browser.reloadSession();
         await browser.url('/prihlaseni');
 
@@ -99,7 +100,7 @@ Xdescribe("3 - Interakce s elementy", async () => {
         console.log('Email field is enabled:' + await emailField.isEnabled());
     });
 
-    xit("3.2 - zjištění stavu políčka password", async () => {
+    xit("3.1.2 - zjištění stavu políčka password", async () => {
         await browser.reloadSession();
         await browser.url('/prihlaseni');
 
@@ -108,7 +109,7 @@ Xdescribe("3 - Interakce s elementy", async () => {
         console.log('Password field is enabled:' + await passwordField.isEnabled());
     });
 
-    xit("3.3 - výpis textu tlačítka na přihlášení", async () => {
+    xit("3.1.3 - výpis textu tlačítka na přihlášení", async () => {
         await browser.reloadSession();
         await browser.url('/prihlaseni');
 
@@ -117,7 +118,7 @@ Xdescribe("3 - Interakce s elementy", async () => {
 
     });
 
-    it("3.4 - zapomenuté heslo", async () => {
+    xit("3.1.4 - zapomenuté heslo", async () => {
         await browser.reloadSession();
         await browser.url('/prihlaseni');
 
@@ -125,10 +126,92 @@ Xdescribe("3 - Interakce s elementy", async () => {
         console.log('Forgot password? link:' + await forgottenPassword);
     });
 
+    xit("3.1.5 - přihlášení", async () => {
+        await browser.reloadSession();
+        await browser.url('/prihlaseni');
+        
+
+        const emailField = $('#email');
+        const passwordField = $('#password');
+        const loginButton = $('.btn-primary');
+
+        await emailField.setValue(username);
+        await passwordField.setValue(password);
+        await loginButton.click();
+        await browser.pause(2000);
+    });
+
+    xit("3.1.6 - nalezení jména", async () => {
+        await browser.reloadSession();
+        await browser.url('/prihlaseni');
+        
+
+        const emailField = $('#email');
+        const passwordField = $('#password');
+        const loginButton = $('.btn-primary');
+
+        await emailField.setValue(username);
+        await passwordField.setValue(password);
+        await loginButton.click();
+
+        const jmenoUzivatele = $('.navbar-right').$('strong').getText();
+    
+        console.log("Jméno uživatele je:" + await jmenoUzivatele);
+        await browser.pause(2000);
+    });
+
+});
+
+    //CVIČENÍ 2
+describe("3.2 - Interakce s elementy 2", async () => {
+    xit("3.2.1 - Kliknutí na přihlášky", async () => {
+        await browser.reloadSession();
+        await browser.url('/prihlaseni');
+        
+
+        const emailField = $('#email');
+        const passwordField = $('#password');
+        const loginButton = $('.btn-primary');
+
+        await emailField.setValue(username);
+        await passwordField.setValue(password);
+        await loginButton.click();
+
+        await $('=Přihlášky').click();
+
+        await browser.pause(2000);
+    });
+    it("3.2.2 - Výpis řádků tabulky", async () => {
+        await browser.reloadSession();
+        await browser.url('/prihlaseni');
+        
+
+        const emailField = $('#email');
+        const passwordField = $('#password');
+        const loginButton = $('.btn-primary');
+
+        await emailField.setValue(username);
+        await passwordField.setValue(password);
+        await loginButton.click();
+
+        await $('=Přihlášky').click();
+        await browser.pause(1000);
+
+        const rows = await $('.dataTable').$('tbody').$$('tr');
+        console.log("Počet řádků tabulky je " + rows.length);
+
+        
+
+
+        await browser.pause(2000);
+    });
+
+
+
 });
 
 // LEKCE 4 - PSANÍ A ORGANIZACE TESTŮ
-Xdescribe("4- Psaní a organizace testů", async () => {
+xdescribe("4- Psaní a organizace testů", async () => {
 
 
 
@@ -136,7 +219,7 @@ Xdescribe("4- Psaní a organizace testů", async () => {
 
 
 // LEKCE 5 - ASERTACE
-describe("5 - Assertace", async () => {
+xdescribe("5 - Assertace", async () => {
 
     describe('Login Page', async () => {
 
