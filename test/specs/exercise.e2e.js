@@ -4,7 +4,7 @@ import { username, password } from './fixtures.js'
 
 describe('Czechitas Login Page', async () => {
 
-        it('should open login page', async () => {
+        xit('should open login page', async () => {
 
                 await browser.reloadSession();
 
@@ -186,16 +186,20 @@ describe('Czechitas Login Page', async () => {
 
 
                 // 5 - ASERTACE
+        });
                 
-                
+        
+// 6 - HOOKS
+
+        it('should open login page', async () => {
+
+        await browser.reloadSession();
+
+        await browser.url('/prihlaseni');
 
 
 
-
-
-
-
-                await browser.pause(5000);
+        await browser.pause(5000);
 
         });
 
