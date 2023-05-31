@@ -37,6 +37,7 @@ describe('Login Page', async () => {
         console.log('User currently logged in: ' + await userNameDropdown.getText());
     });
 
+
     it('should not login with invalid credentials', async () => {
 
         const emailField = $('#email');
