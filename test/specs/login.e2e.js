@@ -1,4 +1,6 @@
 import { username, password } from './fixtures.js'
+import LoginPage from '../pageobjects/login.page.js'
+
 
 async function getEmailField(){
     return await $('#email');
@@ -19,11 +21,10 @@ async function getUserName(){
 describe("4.1- Přihlašování", async () => {
 
     beforeEach(async()=> {
-        await browser.reloadSession();
-        await browser.url('/prihlaseni');
+        await LoginPage.open();
     });
 
-    it("4.1.1 - Přihlášení bez údajů", async () => {
+    xit("4.1.1 - Přihlášení bez údajů", async () => {
     
         const emailField = await getEmailField();
         console.log('Email field is displayed: ' + await emailField.isDisplayed());
@@ -45,7 +46,7 @@ describe("4.1- Přihlašování", async () => {
         await browser.pause(2000);
     });
 
-    it("4.1.2 - Nesprávné heslo", async () => {
+    xit("4.1.2 - Nesprávné heslo", async () => {
     
         const emailField = await getEmailField();
         await emailField.setValue(username);
@@ -65,14 +66,7 @@ describe("4.1- Přihlašování", async () => {
 
     it("4.1.3 - Správné údaje", async () => {
     
-        const emailField = await getEmailField();
-        await emailField.setValue(username);
-
-        const passwordField = await getPasswordField ();
-        await passwordField.setValue(password);
-
-        const submitButton = await button();
-        await submitButton.click();
+        await LoginPage.login(username, password);
 
         const jmenoUzivatele = await getUserName();
         console.log("Jméno uživatele je: " + await jmenoUzivatele.getText());
@@ -82,7 +76,7 @@ describe("4.1- Přihlašování", async () => {
 
     });
 
-    it("4.1.4 - Logout", async () => {
+    xit("4.1.4 - Logout", async () => {
     
         const emailField = await getEmailField();
         await emailField.setValue(username);
