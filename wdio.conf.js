@@ -9,6 +9,8 @@ export const config = {
     suites: {
         cviceni: ['./test/specs/cviceni.e2e.js'],
         exercise: ['./test/specs/exercise.e2e.js'],
+        login:['./test/specs/login.e2e.js'],
+        applications:['./test/specs/applications.e2e.js'],
         homework: ['./test/specs/homework/*.e2e.js'],
         lesson_01: ['./test/specs/examples/lesson-01/**/*.e2e.js'],
         lesson_02: ['./test/specs/examples/lesson-02/**/*.e2e.js'],

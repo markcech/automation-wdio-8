@@ -28,6 +28,8 @@
   "scripts": {
     "wdio": "wdio run wdio.conf.js",
     "cviceni": "npm run wdio -- --suite cviceni",
+    "login": "npm run wdio -- --suite login",
+    "applications": "npm run wdio -- --suite applications",
     "homework": "npm run wdio -- --suite homework",
     "wdio-hooks": "wdio run test/specs/examples/lesson-06/wdio.hooks.conf.js",
     "wdio-allure": "wdio run test/specs/examples/lesson-06/wdio.allure.conf.js",
