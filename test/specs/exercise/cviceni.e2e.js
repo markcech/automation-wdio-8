@@ -1,4 +1,4 @@
-import { username, password } from './fixtures.js'
+import { username, password } from '../fixtures.js'
 
 // LEKCE 1 - TESTOVACÍ FRAMEWORK
         xdescribe("1 - Testovaci framework", async () => {

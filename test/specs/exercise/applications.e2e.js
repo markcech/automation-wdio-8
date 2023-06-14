@@ -1,4 +1,4 @@
-import { username, password } from "./fixtures.js";
+import { username, password } from "../fixtures.js";
 
 async function openLoginPage() {
   await browser.reloadSession(), await browser.url("/prihlaseni");

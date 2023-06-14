@@ -137,7 +137,7 @@ describe("Homework 4", async () => {
     await browser.pause(2000);
 
     // const invalidEmailFeedback = await $('[name = email]').$('[span class = invalid-feedback]');
-    // console.log("Invalid feedback text is: " + await $$('.invalid-feedback').getText());
+    console.log("Invalid feedback text is: " + (await $$('.invalid-feedback')).getText());
   });
 
   xit("should not register new user with invalid password", async () => {

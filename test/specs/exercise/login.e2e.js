@@ -1,5 +1,5 @@
-import { username, password } from './fixtures.js'
-import LoginPage from '../pageobjects/login.page.js'
+import { username, password } from '../fixtures.js'
+import LoginPage from '../../pageobjects/login.page.js'
 
 
 async function getEmailField(){
