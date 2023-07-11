@@ -28,6 +28,7 @@
   "scripts": {
     "wdio": "wdio run wdio.conf.js",
     "cviceni": "npm run wdio -- --suite cviceni",
+    "cviceni11": "npm run wdio -- --suite cviceni11",
     "login": "npm run wdio -- --suite login",
     "applications": "npm run wdio -- --suite applications",
     "homework": "npm run wdio -- --suite homework",

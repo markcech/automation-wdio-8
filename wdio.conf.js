@@ -8,6 +8,7 @@ export const config = {
     ],
     suites: {
         cviceni: ['./test/specs/exercise/cviceni.e2e.js'],
+        cviceni11: ['./test/specs/exercise/cviceni11.e2e.js'],
         exercise: ['./test/specs/exercise.e2e.js'],
         login:['./test/specs/exercise/login.e2e.js'],
         applications:['./test/specs/exercise/applications.e2e.js'],

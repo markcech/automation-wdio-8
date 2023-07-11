@@ -1,4 +1,4 @@
-import { username, password } from '../fixtures.js'
+import { username, password, userFullName } from '../fixtures.js'
 
 // LEKCE 1 - TESTOVACÍ FRAMEWORK
         xdescribe("1 - Testovaci framework", async () => {
@@ -405,7 +405,7 @@ import { username, password } from '../fixtures.js'
         });
 
 // LEKCE 5 - ASERTACE
-        xdescribe("5 - Assertace", async () => {
+        describe("5 - Assertace", async () => {
 
             describe('Login Page', async () => {
 
@@ -414,7 +414,7 @@ import { username, password } from '../fixtures.js'
                     await browser.url('/prihlaseni');
                 });
 
-                it('should show login form', async () => {
+                xit('login form is displayed and enabled', async () => {
 
                     const emailField = await $('#email');
                     await expect (emailField).toBeDisplayed();
@@ -426,7 +426,14 @@ import { username, password } from '../fixtures.js'
 
                     const loginButton = await $('.btn-primary');
                     await expect (loginButton).toBeDisplayed();
-                    await expect (loginButton.getText()).toEqual('Přihlásit');
+                    await expect (loginButton).toBeEnabled();
+                    await expect (await loginButton.getText()).toEqual('Přihlásit');
+                });
+
+                xit('forgotten password has the right link', async () => {
+
+                    const ZapomenuteHeslo = await $('.btn-link');
+                    await expect (ZapomenuteHeslo).toHaveHref('https://team8-2022brno.herokuapp.com/zapomenute-heslo');
 
                 });
 
@@ -440,10 +447,11 @@ import { username, password } from '../fixtures.js'
                     await loginButton.click();
 
                     const userNameDropdown = $('.navbar-right').$('[data-toggle="dropdown"]');
-                    console.log('User currently logged in: ' + await userNameDropdown.getText());
+                    await expect (await userNameDropdown.getText()).toEqual(userFullName);
+            
                 });
 
-                xit('should not login with invalid credentials', async () => {
+                it('should not login with invalid credentials', async () => {
 
                     const emailField = $('#email');
                     const passwordField = $('#password');
