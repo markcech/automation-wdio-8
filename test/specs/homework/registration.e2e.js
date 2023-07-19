@@ -1,4 +1,4 @@
-import {name, email, passwordRegistration, passwordRegistrationConfirm} from '../fixtures.js';
+import {name, email, passwordRegistration, passwordRegistrationConfirm} from './fixtures.js';
 
 import RegistrationPage from './registration.page.js';
 
