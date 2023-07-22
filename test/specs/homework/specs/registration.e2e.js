@@ -1,6 +1,6 @@
 import {name, email, passwordRegistration, passwordRegistrationConfirm} from './fixtures.js';
 
-import RegistrationPage from './registration.page.js';
+import RegistrationPage from '../pages/registration.page.js';
 
 describe("Registration page", async () => {
 
@@ -11,16 +11,16 @@ describe("Registration page", async () => {
 
   it("should open registration page and check its elements", async () => {
     
-    await expect (RegistrationPage.nameField).toBeDisplayed();
-    await expect (RegistrationPage.nameField).toBeEnabled();
-    await expect (RegistrationPage.emailField).toBeDisplayed();
-    await expect (RegistrationPage.emailField).toBeEnabled();
-    await expect (RegistrationPage.passwordField).toBeDisplayed();
-    await expect (RegistrationPage.passwordField).toBeEnabled();
-    await expect (RegistrationPage.passwordConfirmField).toBeDisplayed();
-    await expect (RegistrationPage.passwordConfirmField).toBeEnabled();
-    await expect (RegistrationPage.registrationButton).toBeDisplayed();
-    await expect (RegistrationPage.registrationButton).toBeEnabled();
+    await expect (await RegistrationPage.nameField).toBeDisplayed();
+    await expect (await RegistrationPage.nameField).toBeEnabled();
+    await expect (await RegistrationPage.emailField).toBeDisplayed();
+    await expect (await RegistrationPage.emailField).toBeEnabled();
+    await expect (await RegistrationPage.passwordField).toBeDisplayed();
+    await expect (await RegistrationPage.passwordField).toBeEnabled();
+    await expect (await RegistrationPage.passwordConfirmField).toBeDisplayed();
+    await expect (await RegistrationPage.passwordConfirmField).toBeEnabled();
+    await expect (await RegistrationPage.registrationButton).toBeDisplayed();
+    await expect (await RegistrationPage.registrationButton).toBeEnabled();
     await expect (await RegistrationPage.registrationButton.getText()).toEqual('Zaregistrovat');
   });
 
@@ -36,7 +36,7 @@ describe("Registration page", async () => {
     
     await RegistrationPage.registration(name, email, passwordRegistration, passwordRegistrationConfirm);
     
-    await expect(await RegistrationPage.userName.getText()).toEqual(name);
+    await expect(await RegistrationPage.getUser()).toEqual(name);
   });
 
   it("should not register new user with already registered email", async () => {

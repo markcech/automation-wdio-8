@@ -12,7 +12,7 @@ export const config = {
         exercise: ['./test/specs/exercise.e2e.js'],
         login:['./test/specs/exercise/login.e2e.js'],
         applications:['./test/specs/exercise/applications.e2e.js'],
-        registration_hw: ['./test/specs/homework/*.e2e.js'],
+        registration_hw: ['./test/specs/homework/specs/*.e2e.js'],
         lesson_01: ['./test/specs/examples/lesson-01/**/*.e2e.js'],
         lesson_02: ['./test/specs/examples/lesson-02/**/*.e2e.js'],
         lesson_03: ['./test/specs/examples/lesson-03/**/*.e2e.js'],

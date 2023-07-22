@@ -1,5 +1,8 @@
-class RegistrationPage {
+import RegPage from "./reg.page.js";
+
+class RegistrationPage extends RegPage {
   constructor() {
+    super();
     this.url = '/registrace';
   }
 
@@ -14,15 +17,12 @@ get passwordField() { return $('#password'); }
 get passwordConfirmField() { return $('#password-confirm'); }
   
 get registrationButton() { return $('.btn-primary'); }
-  
-get userName() { return $(".navbar-right").$('[data-toggle="dropdown"]'); }
-  
+    
 get toastMessage() { return $(".toast-message"); }
 
 get wrongPasswordError () { return $(".invalid-feedback"); }
 
 get wrongEmailError () { return $(".invalid-feedback"); }
-
 
 
 async open() {
