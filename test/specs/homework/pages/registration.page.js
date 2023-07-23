@@ -33,6 +33,7 @@ async open() {
 async registration(name, email, passwordRegistration, passwordRegistrationConfirm) {
   await this.nameField.setValue(name);
   await this.emailField.setValue(email);
+  console.log(email);
   await this.passwordField.setValue(passwordRegistration);
   await this.passwordConfirmField.setValue(passwordRegistrationConfirm);
   await this.registrationButton.click();

@@ -1,3 +1,10 @@
+
+/* Spuštění testů
+  
+npm run wdio -- --suite registration_hw
+  
+*/
+
 import {name, email, passwordRegistration, passwordRegistrationConfirm} from './fixtures.js';
 
 import RegistrationPage from '../pages/registration.page.js';
@@ -26,7 +33,7 @@ describe("Registration page", async () => {
 
   it("should not register new user with invalid password", async () => {
    
-    await RegistrationPage.registration(name,email,'123456', '123456');
+    await RegistrationPage.registration(name, email, '123456', '123456');
 
     await expect (await RegistrationPage.wrongPasswordError.getText()).toEqual ('Heslo musí obsahovat minimálně 6 znaků, velké i malé písmeno a číslici');
     await expect (await RegistrationPage.toastMessage.getText()).toEqual ('Některé pole obsahuje špatně zadanou hodnotu');
